@@ -3,7 +3,7 @@
 # Cleaning input
 raw_input = "   Alice Johnson   "
 cleaned = raw_input.strip()
-print(f"Original:  [{raw_input}]")
+print(f"Original:  {raw_input}]")
 print(f"Stripped:  [{cleaned}]")
 print()
 
