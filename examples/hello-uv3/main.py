@@ -1,6 +1,3 @@
-def main():
-    print("Hello from hello-uv3!")
+hello = "file:\\\\asd"
 
-
-if __name__ == "__main__":
-    main()
+print(hello)
