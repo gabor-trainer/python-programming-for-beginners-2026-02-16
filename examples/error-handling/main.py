@@ -1,4 +1,5 @@
 import json
+import msvcrt
 
 user_input = None
 top_n = None
@@ -9,9 +10,10 @@ output_file = "top_customers.json"
 
 while True:
     try:
-        with open(input_file, "r", encoding="utf-8") as f:
-            root = json.load(f)
-            customers = root.get("customers", [])
+        if not root:
+            with open(input_file, "r", encoding="utf-8") as f:
+                root = json.load(f)
+                customers = root.get("customers", [])
         user_input = input(
             f"Enter a integer number for top n customers: (0-{len(customers)}): ")
         top_n = int(user_input)
@@ -24,6 +26,9 @@ while True:
         print(f"Invalid number {user_input}")
     except FileNotFoundError:
         print(f"File not found: {input_file} from the current directory")
+        # wait for the user to fix the problem and try again, press any key to continue
+        print("Press any key to continue...")
+        msvcrt.getch()
     # except IOError:
     #     print("File not found")
 
